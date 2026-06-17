@@ -1,0 +1,29 @@
+<section class="date-updater">
+  <h3>Check Availability</h3>
+  <form [formGroup]="dateForm" (ngSubmit)="onSubmit()" class="date-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Check-in</mat-label>
+      <input 
+        matInput 
+        [matDatepicker]="pickerIn" 
+        formControlName="checkIn"
+        [min]="today"
+        [max]="dateForm.value.checkOut">
+      <mat-datepicker-toggle matSuffix [for]="pickerIn"></mat-datepicker-toggle>
+      <mat-datepicker #pickerIn></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Check-out</mat-label>
+      <input 
+        matInput 
+        [matDatepicker]="pickerOut" 
+        formControlName="checkOut"
+        [min]="dateForm.value.checkIn">
+      <mat-datepicker-toggle matSuffix [for]="pickerOut"></mat-datepicker-toggle>
+      <mat-datepicker #pickerOut></mat-datepicker>
+    </mat-form-field>
+    
+    <button mat-flat-button color="primary" type="submit">Apply Changes</button>
+  </form>
+</section>

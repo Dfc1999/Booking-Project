@@ -1,0 +1,17 @@
+:host button {
+  background: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0 16px;
+  line-height: 36px; 
+  color: #000;
+  border-radius: 6px;
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+:host button:hover {
+  background: rgba(0, 0, 0, 0.04);
+}

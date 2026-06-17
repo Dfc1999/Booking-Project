@@ -1,0 +1,16 @@
+<mat-card class="hotel-card" tabindex="0">
+  <img mat-card-image [src]="imageUrl" [alt]="name + ' image'" />
+  <mat-card-header>
+    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-subtitle>{{ location }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="rating">
+      <span *ngFor="let star of stars">&#9733;</span>
+      <span class="rating-number">{{ rating.toFixed(1) }}</span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button class="booking-button" (click)="onBooking()">Booking</button>
+  </mat-card-actions>
+</mat-card>

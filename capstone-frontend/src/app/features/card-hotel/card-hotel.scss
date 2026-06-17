@@ -1,0 +1,79 @@
+.hotel-card {
+  background-color: #fff;
+  color: #222;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  mat-card-header {
+    padding-bottom: 0;
+
+    mat-card-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    mat-card-subtitle {
+      color: #555;
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+  }
+
+  mat-card-content {
+    padding-top: 4px;
+
+    .rating {
+      color: #ffb400;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .rating-number {
+        color: #222;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  mat-card-actions {
+    margin-top: auto;
+    padding-top: 8px;
+    padding-bottom: 12px;
+
+    .booking-button {
+      background-color: #000;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 5px;
+      padding: 8px 16px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #333;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .hotel-card {
+    img {
+      height: 140px;
+    }
+  }
+}

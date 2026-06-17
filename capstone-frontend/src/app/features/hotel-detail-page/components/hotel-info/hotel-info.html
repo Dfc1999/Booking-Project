@@ -1,0 +1,29 @@
+<section class="hotel-info">
+  <div class="hotel-header">
+    <h1>{{ hotel.name }}</h1>
+    <div class="stars">
+      @for (star of starsArray; track $index) {
+        <mat-icon>star</mat-icon>
+      }
+    </div>
+  </div>
+  <p class="location">
+    <mat-icon>location_on</mat-icon>
+    {{ hotel.location.city }}, {{ hotel.location.country }}
+  </p>
+  <h2>About this hotel</h2>
+  <p class="description">
+    {{ hotel.description | fallbackPipe:'No description available' }}
+  </p>
+  @if (hotel.amenities) {
+    <h2>Amenities</h2>
+    <div class="amenities">
+      @for (amenity of hotel.amenities; track amenity) {
+        <span>
+          <mat-icon color="primary">check_circle</mat-icon>
+          {{ amenity }}
+        </span>
+      }
+    </div>
+  }
+</section>

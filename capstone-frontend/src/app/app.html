@@ -1,0 +1,13 @@
+@if (isAppReady) {
+  @if (isAuthPage) {
+    <router-outlet></router-outlet>
+  } @else {
+    <app-header></app-header>
+
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+
+    <app-footer></app-footer>
+  }
+}

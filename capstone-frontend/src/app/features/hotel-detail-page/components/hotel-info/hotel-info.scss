@@ -1,0 +1,53 @@
+.hotel-info {
+  .hotel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .stars {
+    margin: 12px 0;
+    display: flex;
+    gap: 4px;
+
+    mat-icon {
+      color: gold;
+      font-size: 28px;
+    }
+  }
+
+  .location {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #444;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin: 12px 0;
+  }
+
+  .amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@if (selectedRoomCount() > 0) {
+  <div class="selection-summary">
+    <div class="selection-info">
+      <h3>Your Selection</h3>
+      <p>{{ selectedRoomCount() }} room(s) selected.</p>
+    </div>
+    <button mat-raised-button color="primary" (click)="proceed.emit()">
+      Proceed with Booking
+    </button>
+  </div>
+}

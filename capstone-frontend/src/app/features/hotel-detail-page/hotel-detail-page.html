@@ -1,0 +1,43 @@
+@if (hotel(); as hotelData) {
+  <div class="hotel-detail-container">
+    
+    <div class="carousel-container">
+      <app-carousel [images]="hotelData.images"></app-carousel>
+    </div>
+
+    <app-hotel-info [hotel]="hotelData"></app-hotel-info>
+
+    <app-availability-form 
+      [dateForm]="dateForm" 
+      (searchAvailability)="loadHotelAndAvailability()">
+    </app-availability-form>
+
+    <app-room-availability
+      [isLoading]="isLoading"
+      [roomSummary]="roomSummary"
+      [detailedRooms]="detailedRooms"
+      [selectedRoomType]="selectedRoomType"
+      [isRoomSelected]="isSelected.bind(this)"
+      (viewDetails)="viewRoomDetails($event)"
+      (back)="backToSummary()"
+      (toggleSelection)="toggleRoomSelection($event)">
+    </app-room-availability>
+
+    <app-booking-summary
+      [selectedRoomCount]="selectedRoomCount"
+      (proceed)="showBookingForm.set(true)">
+    </app-booking-summary>
+
+    @if (showBookingForm()) {
+      <app-booking-form
+        [hotelId]="hotelData._id"
+        [roomIds]="selectedRoomIds()"
+        [guests]="guests()"
+        [checkIn]="dateForm.value.checkIn"
+        [checkOut]="dateForm.value.checkOut"
+        (bookingCompleted)="onBookingCompleted()"
+        (bookingCancelled)="showBookingForm.set(false)">
+      </app-booking-form>
+    }
+  </div>
+}

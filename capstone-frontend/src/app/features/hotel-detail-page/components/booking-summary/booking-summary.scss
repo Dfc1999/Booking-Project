@@ -1,0 +1,30 @@
+.selection-summary {
+  position: sticky;
+  bottom: 20px;
+  background-color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  z-index: 100;
+
+  .selection-info {
+    h3 {
+      margin: 0 0 4px 0;
+      font-weight: 600;
+    }
+    p {
+      margin: 0;
+      color: #555;
+    }
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}

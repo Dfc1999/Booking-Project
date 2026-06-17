@@ -1,0 +1,13 @@
+<div class="message-overlay" [ngClass]="type">
+  <div class="message-container">
+    @if (type === 'success') {
+      <mat-icon class="icon">check_circle</mat-icon>
+      <p>Booking confirmed successfully!</p>
+    } @else {
+      <mat-icon class="icon">error_outline</mat-icon>
+      <p>{{ message }}</p>
+    }
+
+    <button mat-raised-button color="primary" (click)="close()">OK</button>
+  </div>
+</div>

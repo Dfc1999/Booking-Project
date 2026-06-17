@@ -1,0 +1,36 @@
+{
+  "Hotel": {
+    "type": "object",
+    "properties": {
+      "_id": { "type": "string" },
+      "name": { "type": "string" },
+      "location": {
+        "type": "object",
+        "properties": {
+          "country": { "type": "string" },
+          "city": { "type": "string" },
+          "province": { "type": "string" }
+        },
+        "required": ["country", "city", "province"]
+      },
+      "starRating": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 5
+      },
+      "description": { "type": "string" },
+      "amenities": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "rooms": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  }
+}

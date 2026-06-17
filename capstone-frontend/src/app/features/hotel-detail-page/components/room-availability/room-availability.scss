@@ -1,0 +1,38 @@
+.availability-section {
+  margin-top: 20px;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.room-summary-card, .detailed-room-card {
+  display: flex;
+  flex-direction: column;
+
+  mat-card-actions {
+    margin-top: auto;
+    padding: 0 16px 8px !important;
+  }
+}
+
+.detailed-view {
+  h3 {
+    margin-top: 24px;
+  }
+}
+
+.detailed-room-card .price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.detailed-room-card.selected {
+  border: 2px solid #3366cc;
+  box-shadow: 0 4px 12px rgba(51, 102, 204, 0.2);
+}

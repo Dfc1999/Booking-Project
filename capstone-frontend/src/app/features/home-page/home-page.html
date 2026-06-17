@@ -1,0 +1,30 @@
+<section class="hero-section">
+  <app-carousel [images]="carouselImages"></app-carousel>
+</section>
+
+<section class="search-section">
+  <div class="search-box-container">
+    <h1>Find your stay</h1>
+    <p>Search deals on hotels, homes, and much more...</p>
+    
+    <app-search-box (search)="handleSearch($event)" (filtersCleared)="loadHotels()"></app-search-box>
+  </div>
+</section>
+
+<main class="home-main-content">
+  @if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+  }
+
+  <div class="hotel-grid">
+    @for (hotel of hotels; track hotel.id) {
+      <app-hotel-card
+        [id]="hotel.id"
+        [name]="hotel.name"
+        [location]="hotel.location"
+        [imageUrl]="hotel.imageUrl"
+        [rating]="hotel.rating"
+      ></app-hotel-card>
+    }
+  </div>
+</main>

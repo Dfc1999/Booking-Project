@@ -1,0 +1,87 @@
+<div class="booking-form-overlay">
+  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()" class="booking-form-container">
+    <h2>Confirm Your Booking</h2>
+
+    <div class="booking-summary">
+      <div class="summary-item">
+        <mat-icon>calendar_today</mat-icon>
+        <div>
+          <span>Check-in</span>
+          <strong>{{ checkIn | date:'mediumDate' }}</strong>
+        </div>
+      </div>
+      <div class="summary-item">
+        <mat-icon>event</mat-icon>
+        <div>
+          <span>Check-out</span>
+          <strong>{{ checkOut | date:'mediumDate' }}</strong>
+        </div>
+      </div>
+      <div class="summary-item">
+        <mat-icon>group</mat-icon>
+        <div>
+          <span>Guests</span>
+          <strong>{{ guests }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <h3>Guest Details</h3>
+    
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+        @if (bookingForm.get('firstName')?.invalid) {
+          <mat-error>First name is required</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+        @if (bookingForm.get('lastName')?.invalid) {
+          <mat-error>Last name is required</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      @if (bookingForm.get('email')?.invalid) {
+        <mat-error>A valid email is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone" placeholder="+1 (555) 555-5555"/>
+      @if (bookingForm.get('phone')?.invalid) {
+        <mat-error>A valid phone number is required</mat-error>
+      }
+    </mat-form-field>
+
+    <p class="cancellation-policy">
+      <mat-icon>info_outline</mat-icon>
+      Free cancellation up to 3 days before check-in.
+    </p>
+
+    <div class="booking-buttons">
+      <button mat-stroked-button color="warn" type="button" (click)="onCancel()">
+        Cancel
+      </button>
+      <button mat-flat-button color="primary" type="submit" [disabled]="bookingForm.invalid">
+        Confirm Booking
+      </button>
+    </div>
+  </form>
+</div>
+
+@if (confirmationData) {
+  <app-confirmation-message
+    [message]="confirmationData.message"
+    [type]="confirmationData.type"
+    (closed)="closeConfirmation()">
+  </app-confirmation-message>
+}

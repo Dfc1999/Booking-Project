@@ -1,0 +1,18 @@
+<header class="header-container">
+  <img src="/logo.png" alt="Logo" class="logo" />
+
+  <div class="spacer"></div>
+  
+  <button mat-button [routerLink]="['/home']" class="nav-button">
+    Home
+  </button>
+
+  @if (loginService.isLoggedIn()) {
+    <app-user-menu 
+      [username]="loginService.getUsername()" 
+      (logoutClicked)="logout()">
+    </app-user-menu>
+  } @else {
+    <app-button-login></app-button-login>
+  }
+</header>

@@ -1,0 +1,20 @@
+{
+  "Room": {
+    "type": "object",
+    "properties": {
+      "_id": { "type": "string" },
+      "hotelId": { "type": "string" },
+      "type": {
+        "type": "string",
+        "enum": ["single", "double", "triple", "suite"]
+      },
+      "beds": { "type": "integer" },
+      "capacity": { "type": "integer" },
+      "price": { "type": "number" },
+      "available": { "type": "boolean" },
+      "description": { "type": "string" },
+      "features": { "type": "string" }
+    },
+    "required": ["hotelId", "type", "beds", "capacity", "price"]
+  }
+}

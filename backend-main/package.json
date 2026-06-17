@@ -1,0 +1,36 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Para instalar Node.js y npm debemos seguir los siguientes pasos:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/jala-university1/cohort-2/oficial-es-programaci-n-5-cspr-351.ga.t2.25.m1/secci-n-c/damonosvaldofernandezclaros/mycapstone/backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://gitlab.com/jala-university1/cohort-2/oficial-es-programaci-n-5-cspr-351.ga.t2.25.m1/secci-n-c/damonosvaldofernandezclaros/mycapstone/backend/issues"
+  },
+  "homepage": "https://gitlab.com/jala-university1/cohort-2/oficial-es-programaci-n-5-cspr-351.ga.t2.25.m1/secci-n-c/damonosvaldofernandezclaros/mycapstone/backend#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "cloudinary": "^2.7.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "keycloak-connect": "^26.1.1",
+    "mongoose": "^8.16.4",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

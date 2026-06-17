@@ -1,0 +1,94 @@
+<div class="register-container">
+  <img src="logo.png" alt="Logo" class="logo" />
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+    <h2>Register</h2>
+
+    <input
+      formControlName="firstName"
+      type="text"
+      placeholder="First Name"
+      class="input-field"
+    />
+    <div class="error">
+      @if (registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']) {
+        <small>First Name is required</small>
+      }
+      @if (registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['minlength']) {
+        <small>Min 3 characters</small>
+      }
+    </div>
+
+    <input
+      formControlName="lastName"
+      type="text"
+      placeholder="Last Name"
+      class="input-field"
+    />
+    <div class="error">
+      @if (registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']) {
+        <small>Last Name is required</small>
+      }
+      @if (registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['minlength']) {
+        <small>Min 3 characters</small>
+      }
+    </div>
+
+    <input
+      formControlName="username"
+      type="text"
+      placeholder="Username"
+      class="input-field"
+    />
+    <div class="error">
+      @if (registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['required']) {
+        <small>Username is required</small>
+      }
+      @if (registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['minlength']) {
+        <small>Min 3 characters</small>
+      }
+    </div>
+
+    <input
+      formControlName="email"
+      type="email"
+      placeholder="Email"
+      class="input-field"
+    />
+    <div class="error">
+      @if (registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']) {
+        <small>Email is required</small>
+      }
+       @if (registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']) {
+        <small>Invalid email format</small>
+      }
+    </div>
+
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+      class="input-field"
+    />
+    <div class="error">
+      @if (registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']) {
+        <small>Password is required</small>
+      }
+      @if (registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['minlength']) {
+        <small>Min 8 characters</small>
+      }
+      @if (registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['pattern']) {
+        <small>Must contain a number and a special character</small>
+      }
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid" class="btn-register">
+      Sign Up
+    </button>
+
+    @if (registerError) {
+      <div class="register-error">
+        {{ registerError }}
+      </div>
+    }
+  </form>
+</div>

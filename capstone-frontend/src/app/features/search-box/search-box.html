@@ -1,0 +1,49 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search-container">
+  
+  <mat-form-field appearance="fill" class="search-field">
+    <mat-icon matPrefix>place</mat-icon>
+    <mat-label>Where are you going?</mat-label>
+    <mat-select formControlName="location">
+      @for (loc of locations; track loc) {
+        <mat-option [value]="loc">{{ loc }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="search-field date-field">
+    <mat-label>Check-in</mat-label>
+    <input 
+      matInput 
+      [matDatepicker]="checkinPicker" 
+      formControlName="checkIn"
+      [min]="today"  
+      [max]="searchForm.value.checkOut"> 
+    <mat-datepicker-toggle matSuffix [for]="checkinPicker"></mat-datepicker-toggle>
+    <mat-datepicker #checkinPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="search-field date-field">
+    <mat-label>Check-out</mat-label>
+    <input 
+      matInput 
+      [matDatepicker]="checkoutPicker" 
+      formControlName="checkOut"
+      [min]="searchForm.value.checkIn"> 
+    <mat-datepicker-toggle matSuffix [for]="checkoutPicker"></mat-datepicker-toggle>
+    <mat-datepicker #checkoutPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="search-field guests-field">
+    <mat-icon matPrefix>person</mat-icon>
+    <mat-label>Guests</mat-label>
+    <input matInput type="number" formControlName="persons" min="1">
+  </mat-form-field>
+
+  <div class="button-group">
+    <button mat-flat-button type="submit" class="search-button">Search</button>
+    <button mat-button type="button" (click)="clearFilters()" class="clear-button">
+      Clear
+    </button>
+  </div>
+
+</form>

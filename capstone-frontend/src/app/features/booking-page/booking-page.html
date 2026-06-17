@@ -1,0 +1,56 @@
+<div class="content-container" style="flex: 1">
+  <h1 class="page-title">My Bookings</h1>
+
+  @if (loading) {
+    <div>Loading bookings...</div>
+  }
+
+  @if (!loading && bookings.length > 0) {
+    <div class="booking-list">
+      @for (booking of bookings; track booking._id) {
+        <mat-card class="booking-card">
+          <mat-card-header>
+            <mat-card-title>{{ booking.firstName }} {{ booking.lastName }}</mat-card-title>
+            <mat-card-subtitle>
+              Status:
+              <span [ngClass]="booking.status">{{ booking.status }}</span>
+            </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p><strong>Email:</strong> {{ booking.email }}</p>
+            <p><strong>Phone:</strong> {{ booking.phone }}</p>
+            <p><strong>Check-in:</strong> {{ booking.checkInDate | date:'mediumDate' }}</p>
+            <p><strong>Check-out:</strong> {{ booking.checkOutDate | date:'mediumDate' }}</p>
+            <p><strong>Guests:</strong> {{ booking.guests }}</p>
+            <p><strong>Total:</strong> {{ booking.totalPrice | currency }}</p>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="attemptCancelBooking(booking._id)"
+              [disabled]="booking.status === 'cancelled'"
+            >
+              Cancel
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  } @else if (!loading && bookings.length === 0) {
+    <div>
+      You have no bookings yet.
+    </div>
+  }
+</div>
+
+@if (confirmationData) {
+  <app-confirmation-message
+    [message]="confirmationData.message"
+    [type]="confirmationData.type"
+    (closed)="closeConfirmation()"
+  >
+  </app-confirmation-message>
+}
